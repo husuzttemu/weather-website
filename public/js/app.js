@@ -7,7 +7,8 @@ fetch('http://puzzle.mead.io/puzzle').then((response) => {
 
 const getWeather =  (address, callback) =>  {
     
-    const pageLink = `http://localhost:5000/weather?address=${address}`;
+    //const pageLink = `http://localhost:3000/weather?address=${address}`;
+    const pageLink = `/weather?address=${address}`;
 
     fetch(pageLink).then((response) => {
         response.json().then((data) => {

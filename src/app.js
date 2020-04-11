@@ -14,7 +14,7 @@ const hbs = require('hbs');
 
 
 const app = express()
-const port = 5000
+const port = process.env.PORT || 3000
 
 
 //Define paths for Express config

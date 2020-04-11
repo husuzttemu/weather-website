@@ -23,8 +23,10 @@ const getWeather =  (address, callback) =>  {
 
 const weatherForm = document.querySelector('form');
 const searchText = document.getElementById('txtLocation');
-const weatherText = document.getElementById('weatherText');
-const errorText = document.getElementById('errorText');
+const messageText1 = document.getElementById('messageText1');
+const messageText2 = document.getElementById('messageText2');
+const messageText3 = document.getElementById('messageText3');
+const messageText4 = document.getElementById('messageText4');
 
 //errorText.textContent = "aaaa";
 //weatherText.textContent = "bbbb";
@@ -38,6 +40,8 @@ weatherForm.addEventListener('submit', (e)=> {
 
     messageText1.textContent = "";
     messageText2.textContent = "";
+    messageText3.textContent = "";
+    messageText4.textContent = "";
 
     getWeather(address, (error,data) => {
         //console.log(error, data);
@@ -46,7 +50,9 @@ weatherForm.addEventListener('submit', (e)=> {
         }
 
         messageText1.textContent = data.location;
-        messageText2.textContent = data.summary;
+        messageText2.textContent = "Coordinates: " + data.latitude + "," + data.longitude;
+        messageText3.textContent = data.summary;
+        messageText4.textContent = data.prediction;
         
         
     });

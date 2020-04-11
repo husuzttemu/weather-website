@@ -78,12 +78,9 @@ app.get('/weather', (req, res) => {
     const URLMAPBOX = `https://api.mapbox.com/geocoding/v5/mapbox.places/${ADDRESS}?access_token=${TOKENMAPBOX}`;
 
     console.log(URLMAPBOX);
-    console.log("1");
 
     geocode(URLMAPBOX, (error, {latitude, longitude, location} = {}) =>  { 
-        console.log("2");
             if (error) {
-                console.log("3 : ", error);
                 if (error.code === "404") {
                     return res.send({
                         status: error.code 
@@ -121,7 +118,10 @@ app.get('/weather', (req, res) => {
                         timezone: response.timezone,
                         temperature: response.temperature,
                         address: searchAddress,
-                        location: location
+                        location: location,
+                        longitude: response.longitude,
+                        latitude: response.latitude,
+                        prediction: response.prediction
                     });
                 }
             })

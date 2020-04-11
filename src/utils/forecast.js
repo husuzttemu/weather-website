@@ -13,7 +13,8 @@ const forecast = ((url, callback) => {
                 timezone: responseJSON.timezone,
                 temperature: responseJSON.currently.temperature,
                 precipProbability: responseJSON.currently.precipProbability,
-                summary:  responseJSON.hourly.summary
+                summary:  responseJSON.hourly.summary,
+                prediction: `It is currently ${responseJSON.currently.temperature} out. There is a ${responseJSON.currently.precipProbability}% chance of rain ` 
             }
             console.log(data + ' forecast');
             //console.log(data);
